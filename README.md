@@ -80,6 +80,20 @@ This system demonstrates how businesses can automate large-scale customer feedba
 * DistilBERT showed consistent learning (training loss decreased significantly), but validation loss increased slightly, indicating mild overfitting.
 * Balanced sampling improved prediction stability across both classes.
 * Results highlight that classical models remain highly competitive for sentiment classification tasks, especially under limited training budgets.
+* Despite the expressive power of transformer models, the TF-IDF baseline achieved better performance in this constrained setup, emphasizing the importance of benchmarking simpler models before adopting more complex architectures.
+
+---
+
+## Example Prediction
+
+Input:
+"This movie was a complete waste of time."
+
+Prediction:
+Negative
+
+Confidence:
+0.998
 
 ---
 
@@ -172,6 +186,17 @@ This project was developed as a local experimental pipeline, but it can be exten
 * Deeper error analysis on misclassified samples
 * Model calibration to reduce overconfidence
 * Deployment as a REST API or batch scoring system
+
+---
+
+## How to Run
+
+```bash
+pip install -r requirements.txt
+python -m src.data_preprocessing
+python -m src.train_baseline
+python -m src.train_bert
+python -m src.inference
 
 ---
 
