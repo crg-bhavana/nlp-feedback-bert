@@ -1,7 +1,7 @@
 # End-to-End NLP Pipeline for Customer Feedback Analysis
 
-**Bhavana Chikkamuduvadi Renuka Gowda**
-Data Scientist | Machine Learning | NLP
+## Bhavana Chikkamuduvadi Renuka Gowda
+**Data Scientist | Machine Learning | NLP**
 
 ---
 
@@ -120,12 +120,22 @@ This suggests that while the current model is effective for general sentiment de
 
 ```
 data/
-models/
+└── sample/ # IMDb dataset samples
+
 results/
-  ├── baseline_metrics.json
-  ├── bert_metrics.json
-  ├── plots/
+├── baseline_metrics.json
+├── bert_metrics.json
+└── plots/ # Confusion matrices and training curves
+
 src/
+├── data_preprocessing.py
+├── train_baseline.py
+├── train_bert.py
+├── inference.py
+└── evaluate.py
+
+README.md
+requirements.txt
 ```
 
 
