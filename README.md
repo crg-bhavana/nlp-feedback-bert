@@ -197,6 +197,7 @@ python -m src.data_preprocessing
 python -m src.train_baseline
 python -m src.train_bert
 python -m src.inference
+```
 
 ---
 
