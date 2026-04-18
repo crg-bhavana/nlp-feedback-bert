@@ -1,10 +1,15 @@
 # End-to-End NLP Pipeline for Customer Feedback Analysis
 
+**Bhavana Chikkamuduvadi Renuka Gowda**
+Data Scientist | Machine Learning | NLP
+
+---
+
 ## Overview
 
-Built an end-to-end NLP sentiment classification pipeline using the IMDb dataset, covering preprocessing, baseline benchmarking, transformer fine-tuning, evaluation, and inference.
+Designed and evaluated an end-to-end NLP sentiment analysis system using the IMDb dataset, benchmarking classical machine learning against transformer-based models to understand performance trade-offs in real-world text classification.
 
-This project compares a classical machine learning approach (TF-IDF + Logistic Regression) with a transformer-based model (DistilBERT) under controlled experimental conditions.
+This system demonstrates how businesses can automate large-scale customer feedback analysis to identify sentiment trends, detect dissatisfaction early, and support product and customer experience decisions.
 
 ---
 
@@ -50,6 +55,25 @@ This project compares a classical machine learning approach (TF-IDF + Logistic R
 
 ---
 
+## Model Performance Visualizations
+
+### Baseline Confusion Matrix
+
+![Baseline Confusion Matrix](results/plots/baseline_confusion_matrix.png)
+
+### DistilBERT Confusion Matrix
+
+![BERT Confusion Matrix](results/plots/bert_confusion_matrix.png)
+
+### Training and Validation Curves
+
+![BERT Training Loss](results/plots/bert_training_loss.png)
+![BERT Validation Loss](results/plots/bert_validation_loss.png)
+![BERT Validation Accuracy](results/plots/bert_validation_accuracy.png)
+![BERT Validation F1](results/plots/bert_validation_f1.png)
+
+---
+
 ## Key Observations
 
 * The baseline model outperformed DistilBERT in this experiment, achieving higher accuracy and F1 score.
@@ -57,22 +81,30 @@ This project compares a classical machine learning approach (TF-IDF + Logistic R
 * Balanced sampling improved prediction stability across both classes.
 * Results highlight that classical models remain highly competitive for sentiment classification tasks, especially under limited training budgets.
 
-### Insight 
+---
 
-Despite the expressive power of transformer models, the TF-IDF baseline achieved better performance in this constrained setup. This highlights the importance of selecting models based on data size, computational budget, and problem complexity rather than assuming deep learning will always outperform simpler approaches.
+## Why the Baseline Outperformed DistilBERT
+
+In this experiment, the TF-IDF + Logistic Regression baseline outperformed DistilBERT. This is likely due to several factors:
+
+* TF-IDF features are highly effective for sentiment classification tasks where polarity is strongly associated with specific words and phrases.
+* The transformer model was trained on a relatively small local subset (5,000 samples), which may not be enough to fully leverage its contextual modeling power.
+* Classical linear models often perform surprisingly well on clean, well-structured text classification tasks, while requiring less computation and tuning.
+
+This result highlights an important machine learning lesson: more complex models do not always outperform simpler approaches, especially under constrained training setups.
 
 ---
 
-## Visualizations
+## Error Analysis
 
-* Baseline Confusion Matrix
-* BERT Confusion Matrix
-* BERT Training Loss Curve
-* BERT Validation Loss Curve
-* BERT Validation Accuracy Curve
-* BERT Validation F1 Curve
+The model performed well on clearly positive and clearly negative reviews, but there are still likely failure cases:
 
-(See `results/plots/` directory)
+* Reviews with mixed sentiment (both praise and criticism)
+* Neutral or ambiguous phrasing
+* Sarcasm and implicit sentiment
+* Domain-specific expressions not strongly represented in the sampled dataset
+
+This suggests that while the current model is effective for general sentiment detection, further improvements could come from training on a larger dataset and performing deeper error analysis.
 
 ---
 
@@ -96,6 +128,7 @@ results/
 src/
 ```
 
+
 ---
 
 ## Tech Stack
@@ -109,15 +142,29 @@ src/
 
 ---
 
+## Deployment Considerations
+
+This project was developed as a local experimental pipeline, but it can be extended toward production use cases:
+
+* Batch inference for large-scale customer feedback processing
+* Real-time inference via API endpoints
+* Model monitoring for performance drift
+* Model versioning for reproducibility
+* Cloud deployment for scalability
+
+---
+
 ## Future Improvements
 
 * Hyperparameter tuning for DistilBERT
-* Early stopping based on validation loss
+* Early stopping to prevent overfitting
 * Training on the full dataset instead of a subset
+* Deeper error analysis on misclassified samples
 * Model calibration to reduce overconfidence
+* Deployment as a REST API or batch scoring system
 
 ---
 
 ## Summary
 
-This project demonstrates an end-to-end applied machine learning workflow, including model benchmarking, evaluation, and interpretation. It emphasizes practical trade-offs between classical ML models and transformer-based approaches, reinforcing that model effectiveness depends on context, not just model complexity.
+This project demonstrates a complete applied machine learning workflow, including model benchmarking, evaluation, and interpretation. It highlights practical trade-offs between classical ML and transformer-based approaches, reinforcing that model effectiveness depends on context, data size, and computational constraints—not just model complexity.
