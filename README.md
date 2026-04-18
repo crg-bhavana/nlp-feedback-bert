@@ -1,8 +1,5 @@
 # End-to-End NLP Pipeline for Customer Feedback Analysis
 
-## Bhavana Chikkamuduvadi Renuka Gowda
-**Data Scientist | Machine Learning | NLP**
-
 ---
 
 ## Overview
