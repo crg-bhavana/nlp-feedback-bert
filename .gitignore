@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.DS_Store
+
+models/
+data/processed/
+
+*.pkl
+*.pt
+*.bin
+*.safetensors
